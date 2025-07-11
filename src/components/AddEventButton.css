@@ -1,0 +1,25 @@
+.addEventButton {
+	width: 350px;
+	height: 200px;
+	max-width: 400px;
+	max-height: 250px;
+	background-color: #6dcea0;
+	color: 051014;
+	margin: auto 2.5em;
+	text-align: center;
+	border: none;
+	font-size: 30px;
+	padding: 0;
+	border-radius: 0.25em;
+}
+
+.addEventButton:hover {
+	background-color: #78e4b1;
+	outline: 6px solid #78e4b1;
+	cursor: pointer;
+}
+
+.addEventButton:active {
+	background-color: #82fac2;
+	outline: 4px solid #6dcea0;
+}
