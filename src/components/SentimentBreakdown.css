@@ -1,3 +1,19 @@
-.sentimentBreakdownContainer{
-    
+.sentimentBreakdownContainer {
+	width: 450px;
+	max-height: 400px;
+	display: flex;
+	flex-wrap: wrap;
+}
+.sentimentHeading {
+	width: 100%;
+}
+
+.labelName {
+	width: 50%;
+	height: 2em;
+}
+
+.labelCount {
+	width: 50%;
+	height: 2em;
 }

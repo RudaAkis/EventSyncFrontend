@@ -5,6 +5,8 @@ function FeedbackForm({ eventId, onSuccess }) {
 		message: "",
 	});
 
+	const [errors, setErrors] = useState({});
+
 	const handleChange = (event) => {
 		console.log(event.target);
 		const { name, value } = event.target;
@@ -25,13 +27,14 @@ function FeedbackForm({ eventId, onSuccess }) {
 				onSuccess();
 			})
 			.catch((error) => {
+				setErrors(error.response.data);
 				console.log("Failed to post feedback ", error);
 			});
 	};
 
 	return (
-		<form>
-			<label>Your Feedback</label>
+		<form className="form">
+			<label className="formLabel">Your Feedback</label>
 			<textarea
 				id="message"
 				name="message"
@@ -40,9 +43,11 @@ function FeedbackForm({ eventId, onSuccess }) {
 				rows={5}
 				cols={50}
 				placeholder="Write your feedback here..."
-				className="descriptionArea"
+				className="formTextArea"
 			/>
-			<button type="submit" onClick={handleSubmit}>
+			{errors.message && <p className="errorMessage">{errors.message}</p>}
+
+			<button type="submit" className="submitBtn" onClick={handleSubmit}>
 				Submit
 			</button>
 		</form>

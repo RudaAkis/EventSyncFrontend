@@ -1,0 +1,51 @@
+.form {
+	margin: 1em;
+	display: flex;
+	flex-direction: column;
+	width: 450px;
+	max-height: 350px;
+	border-radius: 0.5em;
+	text-align: center;
+}
+
+.formLabel,
+.formTextArea,
+.formInput,
+.submitBtn {
+	margin: 0.8em auto;
+	color: #051014;
+	border: none;
+	border-radius: 0.2em;
+}
+
+.formTextArea,
+.formInput,
+input::placeholder,
+textarea::placeholder {
+	background-color: #7daf98;
+	color: rgb(51, 51, 51);
+}
+
+.formLabel,
+.formTextArea,
+.formInput {
+	width: 80%;
+}
+
+.formInput {
+	height: 3em;
+}
+
+.submitBtn {
+	background-color: #e06d06;
+	cursor: pointer;
+	width: 60%;
+	height: 2em;
+}
+
+.errorMessage {
+	font-size: 0.5em;
+	color: rgb(255, 5, 5);
+	margin: 0;
+	padding: 0;
+}

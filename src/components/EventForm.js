@@ -1,11 +1,14 @@
 import { useState } from "react";
 import instance from "../api/AxiosConfig";
+import "./Form.css";
 
 function EventForm({ addEvent, closeModal }) {
 	const [formData, setFormData] = useState({
 		name: "",
 		description: "",
 	});
+
+	const [errors, setErrors] = useState({});
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
@@ -29,12 +32,13 @@ function EventForm({ addEvent, closeModal }) {
 				closeModal();
 			})
 			.catch((error) => {
+				setErrors(error.response.data);
 				console.error("Failed to post the event ", error);
 			});
 	};
 
 	return (
-		<form className="eventForm">
+		<form className="form">
 			<label className="formLabel">Event name</label>
 			<input
 				type="text"
@@ -44,6 +48,8 @@ function EventForm({ addEvent, closeModal }) {
 				className="formInput"
 				placeholder="Concert..."
 			></input>
+			{errors.name && <p className="errorMessage">{errors.name}</p>}
+
 			<label className="formLabel">Event description</label>
 			<textarea
 				id="description"
@@ -53,9 +59,13 @@ function EventForm({ addEvent, closeModal }) {
 				rows={5}
 				cols={50}
 				placeholder="Event Description..."
-				className="eventDescription"
+				className="formTextArea"
 			/>
-			<button type="submit" onClick={handleSubmit}>
+			{errors.description && (
+				<p className="errorMessage">{errors.description}</p>
+			)}
+
+			<button type="submit" className="submitBtn" onClick={handleSubmit}>
 				Submit
 			</button>
 		</form>

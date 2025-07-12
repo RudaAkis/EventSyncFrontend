@@ -1,8 +1,8 @@
 function Sentiment({ sentimentPair }) {
 	return (
 		<>
-			<p>{sentimentPair.sentiment}</p>
-			<p>{sentimentPair.count}</p>
+			<p className="labelName">{sentimentPair.sentiment}</p>
+			<p className="labelCount">{sentimentPair.count}</p>
 		</>
 	);
 }
